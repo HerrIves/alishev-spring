@@ -1,13 +1,20 @@
 package de.ivev.spring;
 
-public class MusicPlayer {
-    private Music music;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    public MusicPlayer(Music music) {
+@Component
+public class MusicPlayer {
+    private ClassicalMusic music;
+    private RockMusic rockMusic;
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic music,  RockMusic rockMusic) {
         this.music = music;
+        this.rockMusic = rockMusic;
     }
 
-    public void playMusic(){
-        System.out.println("Playing " +music.getSong());
+    public String playMusic(){
+        return "Playing " +music.getSong() + ", " + rockMusic.getSong();
     }
 }
