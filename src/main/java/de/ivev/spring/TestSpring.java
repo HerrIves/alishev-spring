@@ -1,5 +1,6 @@
 package de.ivev.spring;
 
+import de.ivev.spring.genres.ClassicalMusic;
 import de.ivev.spring.genres.Genres;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -7,13 +8,16 @@ public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-//        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
-//        RockMusic rockMusic = context.getBean("rockMusic",  RockMusic.class);
-//        MusicPlayer musicPlayer = new MusicPlayer(classicalMusic, rockMusic);
-//        musicPlayer.playMusic();
+//        Computer computer = context.getBean("computer",  Computer.class);
+//        System.out.println(computer.getMusicPlayer().playMusic(Genres.ROCK));
 
-        Computer computer = context.getBean("computer",  Computer.class);
-        System.out.println(computer.getMusicPlayer().playMusic(Genres.ROCK));
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
+        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
+        System.out.println(classicalMusic1 == classicalMusic2);
 
         context.close();
     }
