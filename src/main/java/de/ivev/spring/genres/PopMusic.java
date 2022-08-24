@@ -1,4 +1,4 @@
-package de.ivev.spring;
+package de.ivev.spring.genres;
 
 import java.util.Arrays;
 import java.util.List;

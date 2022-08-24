@@ -1,5 +1,6 @@
 package de.ivev.spring;
 
+import de.ivev.spring.genres.Genres;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
@@ -12,7 +13,7 @@ public class TestSpring {
 //        musicPlayer.playMusic();
 
         Computer computer = context.getBean("computer",  Computer.class);
-        System.out.println(computer.getMusicPlayer().playMusic(Genres.CLASSICAL));
+        System.out.println(computer.getMusicPlayer().playMusic(Genres.ROCK));
 
         context.close();
     }
