@@ -12,7 +12,7 @@ public class TestSpring {
 //        musicPlayer.playMusic();
 
         Computer computer = context.getBean("computer",  Computer.class);
-        System.out.println(computer);
+        System.out.println(computer.getMusicPlayer().playMusic(Genres.CLASSICAL));
 
         context.close();
     }
