@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Random;
 
-@Component
 public class MusicPlayer {
     @Value("${musicPlayer.name}")
     private String name;
@@ -18,16 +17,18 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
+    public MusicPlayer(@Qualifier("classicalMusic") Music classicalMusic,
+                       @Qualifier("rockMusic")Music rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
+    }
+
     public String getName() {        return name;    }
     public int getVolume() {        return volume;    }
 
     private Genres genre = Genres.values()[0];
 
-    @Autowired
-    @Qualifier("classicalMusic")
-    private Music classiclMusic;
-    @Autowired
-    @Qualifier("rockMusic")
+    private Music classicalMusic;
     private Music rockMusic;
 
 

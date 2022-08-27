@@ -1,5 +1,6 @@
 package de.ivev.spring.genres;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,6 @@ import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
 //@Scope("prototype")
 public class ClassicalMusic implements Music{
     private List<String> songs = Arrays.asList("Hungarian Rhapsody", "Valkyrie's Dance", "Requiem");

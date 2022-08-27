@@ -1,12 +1,13 @@
 package de.ivev.spring;
 
+import de.ivev.spring.config.SpringConfig;
 import de.ivev.spring.genres.ClassicalMusic;
-import de.ivev.spring.genres.Genres;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+                /*new ClassPathXmlApplicationContext("applicationContext.xml");*/
 
 //        Computer computer = context.getBean("computer",  Computer.class);
 //        System.out.println(computer.getMusicPlayer().playMusic(Genres.ROCK));
