@@ -2,10 +2,7 @@ package de.ivev.spring;
 
 import de.ivev.spring.genres.Genres;
 import de.ivev.spring.genres.Music;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
@@ -17,31 +14,29 @@ public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
 
-    public MusicPlayer(@Qualifier("classicalMusic") Music classicalMusic,
-                       @Qualifier("rockMusic")Music rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(List<Music>musicList) {
+        this.musicList = musicList;
     }
 
     public String getName() {        return name;    }
     public int getVolume() {        return volume;    }
 
-    private Genres genre = Genres.values()[0];
-
-    private Music classicalMusic;
-    private Music rockMusic;
-
+    private List<Music> musicList;
 
     public String playMusic(){
-        return playRandomSong();
-    }
-    public String playMusic(Genres genre){
-        this.genre = genre;
-        return playRandomSong();
+        Music someMusic = musicList.get(new Random().nextInt(musicList.size()));
+        return playRandomSong(someMusic.getSongsList());
     }
 
-    public String playRandomSong(){
-        List<String> songsList = genre.getSongsList();
-        return songsList.get(new Random().nextInt(songsList.size()));
+
+    private Genres genre = Genres.values()[0];
+    public String playMusic(Genres genre){
+        this.genre = genre;
+        return playRandomSong(genre.getSongsList());
+    }
+
+
+    public String playRandomSong(List<String> songList){
+        return songList.get(new Random().nextInt(songList.size()));
     }
 }
