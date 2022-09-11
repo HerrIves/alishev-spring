@@ -6,9 +6,7 @@ import de.ivev.spring.genres.ClassicalMusic;
 import de.ivev.spring.genres.Music;
 import de.ivev.spring.genres.PopMusic;
 import de.ivev.spring.genres.RockMusic;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
