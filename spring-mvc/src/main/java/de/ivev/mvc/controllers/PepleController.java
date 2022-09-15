@@ -40,8 +40,8 @@ public class PepleController {
     }
 
     @PostMapping()
-    public String create(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
-
+    public String create(@ModelAttribute("person") @Valid Person person,
+                         BindingResult bindingResult) {
         if (bindingResult.hasErrors()) return "people/new";
 
         personDAO.save(person);
@@ -55,11 +55,16 @@ public class PepleController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
-
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
+                         @PathVariable("id") int id) {
         if (bindingResult.hasErrors()) return "people/edit";
 
         personDAO.update(id, person);
+        return "redirect:/people";
+    }
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id){
+        personDAO.delete(id);
         return "redirect:/people";
     }
 }

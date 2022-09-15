@@ -42,4 +42,9 @@ public class PersonDAO {
         person2Update.setEmail(person.getEmail());
 
     }
+
+    public void delete(int id) {
+        Person person4Delete = show(id);
+        people.remove(person4Delete);
+    }
 }
