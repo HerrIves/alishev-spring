@@ -1,9 +1,21 @@
 package de.ivev.mvc.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Person {
     private int id;
+    @NotEmpty(message = "Blank name")
+    @Size(min=2, max=30, message = "please 2-30 symbols")
     private String name;
+
+    @Min(value = 0, message = "more than 0")
     private int age;
+
+    @NotEmpty(message = "email please")
+    @Email(message = "not valid")
     private String email;
 
     public Person() {    }
