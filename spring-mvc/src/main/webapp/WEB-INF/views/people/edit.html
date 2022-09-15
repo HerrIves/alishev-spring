@@ -2,14 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="Edit">Edit</title>
+    <title>Update person</title>
 </head>
 <body>
+
 <form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
     <label for="name">Input name</label>
     <input type="text" th:field="*{name}" id="name">
     <br/>
-    <input type="submit" value="update">
+    <label for="age">Input age</label>
+    <input type="text" th:field="*{age}" id="age">
+    <br/>
+    <label for="email">Input email</label>
+    <input type="text" th:field="*{email}" id="email">
+    <br/>
+    <input type="submit" value="Update!"/>
 </form>
+
 </body>
 </html>
