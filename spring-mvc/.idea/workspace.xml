@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a182a2f2-6bf6-40c5-97f6-fa9d301490b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/d_postgr/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +189,7 @@
       <workItem from="1662968490338" duration="5594000" />
       <workItem from="1663183213568" duration="5059000" />
       <workItem from="1663235869547" duration="7459000" />
-      <workItem from="1663321709485" duration="3449000" />
+      <workItem from="1663321709485" duration="5966000" />
     </task>
     <servers />
   </component>
