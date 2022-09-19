@@ -10,8 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a182a2f2-6bf6-40c5-97f6-fa9d301490b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/controllers/BatchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties.origin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d_postgr/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d_postgr/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/d_postgr/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/insert.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/config/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" afterDir="false" />
     </list>
@@ -23,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -59,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/d_postgr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/d_postgr" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -73,7 +82,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\__projects\spring\spring-mvc\src\main\resources\d_postgr" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\__projects\spring\spring-mvc\src\main\resources\docker" />
+      <recent name="D:\__projects\spring\spring-mvc\src\main\resources" />
       <recent name="D:\__projects\spring\spring-mvc\src\main\webapp\WEB-INF\views\people" />
     </key>
   </component>
@@ -190,7 +204,7 @@
       <workItem from="1663183213568" duration="5059000" />
       <workItem from="1663235869547" duration="7459000" />
       <workItem from="1663321709485" duration="6759000" />
-      <workItem from="1663574107273" duration="3457000" />
+      <workItem from="1663574107273" duration="10271000" />
     </task>
     <servers />
   </component>
