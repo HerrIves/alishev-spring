@@ -10,19 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a182a2f2-6bf6-40c5-97f6-fa9d301490b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/controllers/BatchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties.origin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/d_postgr/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/d_postgr/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/d_postgr/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/config/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/insert.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,17 +85,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.65" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.65" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="C:/Program Files/Java/jdk-17.0.2" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -204,7 +186,9 @@
       <workItem from="1663183213568" duration="5059000" />
       <workItem from="1663235869547" duration="7459000" />
       <workItem from="1663321709485" duration="6759000" />
-      <workItem from="1663574107273" duration="10271000" />
+      <workItem from="1663574107273" duration="17033000" />
+      <workItem from="1663689711022" duration="73000" />
+      <workItem from="1664181515464" duration="6554000" />
     </task>
     <servers />
   </component>
