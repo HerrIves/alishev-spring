@@ -786,7 +786,7 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1664180954</StartupTime>
+      <StartupTime>1664287650</StartupTime>
     </root>
     <database id="2" parent="1" name="admin">
       <ObjectId>16384</ObjectId>
@@ -795,12 +795,9 @@ true posixrules
     <database id="3" parent="1" name="first_db">
       <ObjectId>16385</ObjectId>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>3848</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3862</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|24596|24597|1
-sequence|table|24603|24604|1
-sequence|table|24613|24614|1
-sequence|table|24585|24586|1
+      <Relations>sequence|table|24585|24586|1
 </Relations>
     </database>
     <database id="4" parent="1" name="postgres">
@@ -885,7 +882,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>3849</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3863</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="22" parent="3" name="plpgsql">
@@ -985,165 +982,18 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="34" parent="21" name="citizen_id_seq">
-      <ObjectId>24613</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3838</StateNumber>
-      <DataType>integer|0s</DataType>
-    </sequence>
-    <sequence id="35" parent="21" name="director_director_id_seq">
-      <ObjectId>24596</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3813</StateNumber>
-      <DataType>integer|0s</DataType>
-    </sequence>
-    <sequence id="36" parent="21" name="movie_movie_id_seq">
-      <ObjectId>24603</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3816</StateNumber>
-      <DataType>integer|0s</DataType>
-    </sequence>
-    <sequence id="37" parent="21" name="person_id_seq">
+    <sequence id="34" parent="21" name="person_id_seq">
       <ObjectId>24585</ObjectId>
       <Owner>admin</Owner>
       <StateNumber>3804</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="38" parent="21" name="citizen">
-      <ObjectId>24614</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3838</StateNumber>
-    </table>
-    <table id="39" parent="21" name="director">
-      <ObjectId>24597</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3816</StateNumber>
-    </table>
-    <table id="40" parent="21" name="movie">
-      <ObjectId>24604</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>3816</StateNumber>
-    </table>
-    <table id="41" parent="21" name="person">
+    <table id="35" parent="21" name="person">
       <ObjectId>24586</ObjectId>
       <Owner>admin</Owner>
       <StateNumber>3804</StateNumber>
     </table>
-    <column id="42" parent="38" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3838</StateNumber>
-      <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
-    </column>
-    <column id="43" parent="38" name="name">
-      <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3838</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="44" parent="38" name="age">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>3838</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <check id="45" parent="38" name="citizen_age_check">
-      <ObjectId>24617</ObjectId>
-      <StateNumber>3838</StateNumber>
-      <ColNames>age</ColNames>
-      <Predicate>age &gt; 0</Predicate>
-    </check>
-    <column id="46" parent="39" name="director_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3813</StateNumber>
-      <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
-    </column>
-    <column id="47" parent="39" name="name">
-      <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <StateNumber>3813</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="48" parent="39" name="age">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>3813</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="49" parent="39" name="director_pkey">
-      <ObjectId>24601</ObjectId>
-      <StateNumber>3813</StateNumber>
-      <ColNames>director_id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0</CollationIds>
-      <ClassIds>1978</ClassIds>
-    </index>
-    <key id="50" parent="39" name="director_pkey">
-      <ObjectId>24602</ObjectId>
-      <StateNumber>3813</StateNumber>
-      <ColNames>director_id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>director_pkey</UnderlyingIndexName>
-    </key>
-    <check id="51" parent="39" name="director_age_check">
-      <ObjectId>24600</ObjectId>
-      <StateNumber>3813</StateNumber>
-      <ColNames>age</ColNames>
-      <Predicate>age &gt; 10</Predicate>
-    </check>
-    <column id="52" parent="40" name="movie_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3816</StateNumber>
-      <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
-    </column>
-    <column id="53" parent="40" name="director_id">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3816</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="54" parent="40" name="name">
-      <Position>3</Position>
-      <DataType>varchar(200)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>3816</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="55" parent="40" name="year_of_production">
-      <Position>4</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>3816</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <foreign-key id="56" parent="40" name="movie_director_id_fkey">
-      <ObjectId>24608</ObjectId>
-      <StateNumber>3816</StateNumber>
-      <ColNames>director_id</ColNames>
-      <RefTableId>24597</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>director</RefTableName>
-      <RefKeyName>director_pkey</RefKeyName>
-      <RefColNames>director_id</RefColNames>
-    </foreign-key>
-    <check id="57" parent="40" name="movie_year_of_production_check">
-      <ObjectId>24607</ObjectId>
-      <StateNumber>3816</StateNumber>
-      <ColNames>year_of_production</ColNames>
-      <Predicate>year_of_production &gt; 1900</Predicate>
-    </check>
-    <column id="58" parent="41" name="id">
+    <column id="36" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1151,26 +1001,26 @@ UC/10
       <TypeId>23</TypeId>
       <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="59" parent="41" name="name">
+    <column id="37" parent="35" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>3804</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="41" name="age">
+    <column id="38" parent="35" name="age">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>3804</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="61" parent="41" name="email">
+    <column id="39" parent="35" name="email">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>3804</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="62" parent="41" name="person_pkey">
+    <index id="40" parent="35" name="person_pkey">
       <ObjectId>24592</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>id</ColNames>
@@ -1180,7 +1030,7 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="63" parent="41" name="person_email_key">
+    <index id="41" parent="35" name="person_email_key">
       <ObjectId>24594</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>email</ColNames>
@@ -1190,20 +1040,20 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="64" parent="41" name="person_pkey">
+    <key id="42" parent="35" name="person_pkey">
       <ObjectId>24593</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
     </key>
-    <key id="65" parent="41" name="person_email_key">
+    <key id="43" parent="35" name="person_email_key">
       <ObjectId>24595</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>person_email_key</UnderlyingIndexName>
     </key>
-    <check id="66" parent="41" name="person_age_check">
+    <check id="44" parent="35" name="person_age_check">
       <ObjectId>24589</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>age</ColNames>

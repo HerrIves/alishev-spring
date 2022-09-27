@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersonDAO {
@@ -33,6 +34,12 @@ public class PersonDAO {
 
     }
 
+    public Optional<Person> show(String email) {
+        String SQL = "SELECT * FROM Person WHERE email=?";
+        return jdbcTemplate.query(SQL, new Object[]{email},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
+    }
+
     public void save(Person person) {
         jdbcTemplate.update("INSERT INTO Person(name, age, email) VALUES(?,?,?)", person.getName(), person.getAge(), person.getEmail());
     }
@@ -48,8 +55,8 @@ public class PersonDAO {
 
     /**
      * testing performance
-      */    
-    
+      */
+
     public void testMultipleUpdate() {
         List<Person> people = create1000Person();
         long before = System.currentTimeMillis();
