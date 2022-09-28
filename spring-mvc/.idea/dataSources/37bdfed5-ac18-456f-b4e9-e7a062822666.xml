@@ -786,7 +786,7 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1664287650</StartupTime>
+      <StartupTime>1664352904</StartupTime>
     </root>
     <database id="2" parent="1" name="admin">
       <ObjectId>16384</ObjectId>
@@ -795,7 +795,7 @@ true posixrules
     <database id="3" parent="1" name="first_db">
       <ObjectId>16385</ObjectId>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>3862</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3871</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|24585|24586|1
 </Relations>
@@ -882,7 +882,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>3863</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3872</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="22" parent="3" name="plpgsql">
@@ -991,7 +991,7 @@ UC/10
     <table id="35" parent="21" name="person">
       <ObjectId>24586</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>3804</StateNumber>
+      <StateNumber>3870</StateNumber>
     </table>
     <column id="36" parent="35" name="id">
       <Position>1</Position>
@@ -1020,7 +1020,13 @@ UC/10
       <StateNumber>3804</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="40" parent="35" name="person_pkey">
+    <column id="40" parent="35" name="address">
+      <Position>5</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>3870</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="41" parent="35" name="person_pkey">
       <ObjectId>24592</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>id</ColNames>
@@ -1030,7 +1036,7 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="41" parent="35" name="person_email_key">
+    <index id="42" parent="35" name="person_email_key">
       <ObjectId>24594</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>email</ColNames>
@@ -1040,20 +1046,20 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="42" parent="35" name="person_pkey">
+    <key id="43" parent="35" name="person_pkey">
       <ObjectId>24593</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
     </key>
-    <key id="43" parent="35" name="person_email_key">
+    <key id="44" parent="35" name="person_email_key">
       <ObjectId>24595</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>email</ColNames>
       <UnderlyingIndexName>person_email_key</UnderlyingIndexName>
     </key>
-    <check id="44" parent="35" name="person_age_check">
+    <check id="45" parent="35" name="person_age_check">
       <ObjectId>24589</ObjectId>
       <StateNumber>3804</StateNumber>
       <ColNames>age</ColNames>

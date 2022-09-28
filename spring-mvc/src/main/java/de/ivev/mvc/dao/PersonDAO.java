@@ -41,11 +41,11 @@ public class PersonDAO {
     }
 
     public void save(Person person) {
-        jdbcTemplate.update("INSERT INTO Person(name, age, email) VALUES(?,?,?)", person.getName(), person.getAge(), person.getEmail());
+        jdbcTemplate.update("INSERT INTO Person(name, age, email, address) VALUES(?,?,?,?)", person.getName(), person.getAge(), person.getEmail(), person.getAddress());
     }
 
     public void update(int id, Person person) {
-        jdbcTemplate.update("UPDATE Person SET name=?, age=?, email=? WHERE id=?", person.getName(), person.getAge(), person.getEmail(), id);
+        jdbcTemplate.update("UPDATE Person SET name=?, age=?, email=?, address=? WHERE id=?", person.getName(), person.getAge(), person.getEmail(), person.getAddress(),  id);
     }
 
     public void delete(int id) {
@@ -73,7 +73,7 @@ public class PersonDAO {
         List<Person> people = create1000Person();
         long before = System.currentTimeMillis();
 
-        jdbcTemplate.batchUpdate("INSERT INTO Person VALUES(?, ?, ?, ?)",
+        jdbcTemplate.batchUpdate("INSERT INTO Person VALUES(?, ?, ?, ?, ?)",
                 new BatchPreparedStatementSetter() {
                     @Override
                     public void setValues(PreparedStatement preparedStatement, int i) throws SQLException {
@@ -81,6 +81,7 @@ public class PersonDAO {
                         preparedStatement.setString(2, people.get(i).getName());
                         preparedStatement.setInt(3, people.get(i).getAge());
                         preparedStatement.setString(4, people.get(i).getEmail());
+                        preparedStatement.setString(5, people.get(i).getAddress());
                     }
 
                     @Override
@@ -97,7 +98,7 @@ public class PersonDAO {
     private List<Person> create1000Person() {
         List<Person> people = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            people.add(new Person(i, "name "+i, i, i+"email.com"));
+            people.add(new Person(i, "name "+i, i, i  + "email.com", "address"+ i));
         }
         return people;
     }

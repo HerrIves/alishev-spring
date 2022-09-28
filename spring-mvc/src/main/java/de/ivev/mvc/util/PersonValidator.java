@@ -24,8 +24,11 @@ public class PersonValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
-        if (personDAO.show(person.getEmail()).isPresent()){
+        if (personDAO.show(person.getEmail()).isPresent()) {
             errors.rejectValue("email", "", "this email is already taken");
+        }
+        if (person.getAge() < 1) {
+            errors.rejectValue("age", "", "wrong age");
         }
     }
 }

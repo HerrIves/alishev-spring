@@ -1,9 +1,6 @@
 package de.ivev.mvc.models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Person {
     private int id;
@@ -18,13 +15,18 @@ public class Person {
     @Email(message = "not valid")
     private String email;
 
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Country, City, ZIP(6)")
+    @NotEmpty(message = "email please")
+    private String address;
+
     public Person() {    }
 
-    public Person(int id, String name, int age, String email) {
+    public Person(int id, String name, int age, String email, String address) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
+        this.address = address;
     }
 
     public int getId() {return id;    }
@@ -39,4 +41,6 @@ public class Person {
     public String getEmail() {        return email;    }
     public void setEmail(String email) {        this.email = email;    }
 
+    public String getAddress() {        return address;    }
+    public void setAddress(String address) {        this.address = address;    }
 }
