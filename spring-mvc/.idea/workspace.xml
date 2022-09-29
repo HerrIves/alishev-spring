@@ -10,15 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a182a2f2-6bf6-40c5-97f6-fa9d301490b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/models/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/util/PersonValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/util/PersonValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/show.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -82,6 +78,7 @@
       <recent name="D:\__projects\spring\spring-mvc\src\main\resources\d_postgr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\__projects\spring\spring-mvc\src\main\webapp\WEB-INF\views" />
       <recent name="D:\__projects\spring\spring-mvc\src\main\resources\docker" />
       <recent name="D:\__projects\spring\spring-mvc\src\main\resources" />
       <recent name="D:\__projects\spring\spring-mvc\src\main\webapp\WEB-INF\views\people" />
@@ -193,7 +190,9 @@
       <workItem from="1663689711022" duration="73000" />
       <workItem from="1664181515464" duration="19174000" />
       <workItem from="1664348394227" duration="2019000" />
-      <workItem from="1664352595323" duration="2424000" />
+      <workItem from="1664352595323" duration="3835000" />
+      <workItem from="1664370433327" duration="3159000" />
+      <workItem from="1664436582496" duration="7327000" />
     </task>
     <servers />
   </component>
