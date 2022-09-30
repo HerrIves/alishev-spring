@@ -10,10 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a182a2f2-6bf6-40c5-97f6-fa9d301490b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/ivev/mvc/controllers/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/37bdfed5-ac18-456f-b4e9-e7a062822666/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hibernate/src/main/resources/hibernate.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +189,9 @@
       <workItem from="1664348394227" duration="2019000" />
       <workItem from="1664352595323" duration="3835000" />
       <workItem from="1664370433327" duration="3159000" />
-      <workItem from="1664436582496" duration="7327000" />
+      <workItem from="1664436582496" duration="7983000" />
+      <workItem from="1664457776497" duration="395000" />
+      <workItem from="1664462120361" duration="15000" />
     </task>
     <servers />
   </component>
