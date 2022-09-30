@@ -13,12 +13,15 @@ import org.hibernate.cfg.Configuration;
 public class App 
 {
     public static void main( String[] args ) {
+        Person person1 = new Person("mike", 20);
+        Person person3 = new Person("fike", 40);
+
         SessionFactory sessionFactory = new Configuration().addAnnotatedClass(Person.class).buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        Person person = session.get(Person.class, 1);
-        System.out.println(person);
+        session.save(person1);
+        session.save(person3);
 
         session.getTransaction().commit();
         sessionFactory.close();
