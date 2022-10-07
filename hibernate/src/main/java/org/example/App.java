@@ -25,17 +25,13 @@ public class App {
         try {
             session.beginTransaction();
 
-            Person person = session.get(Person.class, 4);
+            Person oldOwner = session.get(Person.class, 3);
+            Person newOwner = session.get(Person.class, 2);
 
-            List<Item> items = person.getItems();
-            items.forEach(session::remove);
-
-            session.remove(person);
+            List<Item> items = oldOwner.getItems();
+            items.forEach(item -> item.setOwner(newOwner));
 
             session.getTransaction().commit();
-
-
-
 
         } finally {
             sessionFactory.close();
