@@ -26,14 +26,21 @@ public class App {
             session.beginTransaction();
 
             Person person = session.get(Person.class, 4);
-            System.out.println(person);
+
             List<Item> items = person.getItems();
-            System.out.println(items);
+            items.forEach(session::remove);
+
+            session.remove(person);
+
             session.getTransaction().commit();
-        }finally {
+
+
+
+
+        } finally {
             sessionFactory.close();
         }
 
 
-        }
     }
+}
