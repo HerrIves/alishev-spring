@@ -11,7 +11,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person owner;
 
@@ -21,8 +21,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(Person owner, String name) {
-        this.owner = owner;
+    public Item(String name) {
         this.name = name;
     }
 

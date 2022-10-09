@@ -1,15 +1,12 @@
 package org.example;
 
-
 import org.example.model.Item;
 import org.example.model.Person;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.util.List;
 
 /**
@@ -25,14 +22,11 @@ public class App {
         try {
             session.beginTransaction();
 
-            Person oldOwner = session.get(Person.class, 3);
-            Person newOwner = session.get(Person.class, 2);
-
-            List<Item> items = oldOwner.getItems();
-            items.forEach(item -> item.setOwner(newOwner));
+            Person person = new Person("cascade person2", 21);
+            person.addItem(new Item("cascade item2"));
+            session.save(person);
 
             session.getTransaction().commit();
-
         } finally {
             sessionFactory.close();
         }
