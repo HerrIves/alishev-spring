@@ -786,7 +786,7 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1664801660</StartupTime>
+      <StartupTime>1665345451</StartupTime>
     </root>
     <database id="2" parent="1" name="admin">
       <ObjectId>16384</ObjectId>
@@ -796,10 +796,9 @@ true posixrules
       <ObjectId>13769</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>741</IntrospectionStateNumber>
+      <IntrospectionStateNumber>783</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16385|16386|1
-sequence|table|16392|16393|1
+      <Relations>sequence|table|24577|24578|1
 </Relations>
     </database>
     <role id="4" parent="1" name="admin">
@@ -879,7 +878,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>742</IntrospectionStateNumber>
+      <IntrospectionStateNumber>784</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="3" name="plpgsql">
@@ -979,84 +978,39 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="33" parent="20" name="item_id_seq">
-      <ObjectId>16392</ObjectId>
+    <sequence id="33" parent="20" name="person_id_seq">
+      <ObjectId>24577</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>740</StateNumber>
+      <StateNumber>779</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="34" parent="20" name="person_id_seq">
-      <ObjectId>16385</ObjectId>
+    <table id="34" parent="20" name="passport">
+      <ObjectId>24583</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>737</StateNumber>
-      <DataType>integer|0s</DataType>
-    </sequence>
-    <table id="35" parent="20" name="item">
-      <ObjectId>16393</ObjectId>
-      <Owner>admin</Owner>
-      <StateNumber>740</StateNumber>
+      <StateNumber>782</StateNumber>
     </table>
-    <table id="36" parent="20" name="person">
-      <ObjectId>16386</ObjectId>
+    <table id="35" parent="20" name="person">
+      <ObjectId>24578</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>740</StateNumber>
+      <StateNumber>782</StateNumber>
     </table>
-    <column id="37" parent="35" name="id">
+    <column id="36" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>740</StateNumber>
+      <StateNumber>782</StateNumber>
       <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="38" parent="35" name="person_id">
+    <column id="37" parent="34" name="number">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>740</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>782</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="39" parent="35" name="item_name">
-      <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>740</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <foreign-key id="40" parent="35" name="item_person_id_fkey">
-      <ObjectId>16396</ObjectId>
-      <StateNumber>740</StateNumber>
-      <ColNames>person_id</ColNames>
-      <RefTableId>16386</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>person</RefTableName>
-      <RefKeyName>person_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>set-null</OnDelete>
-    </foreign-key>
-    <column id="41" parent="36" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>737</StateNumber>
-      <TypeId>23</TypeId>
-      <IdentityKind>by-default</IdentityKind>
-    </column>
-    <column id="42" parent="36" name="name">
-      <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>737</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="43" parent="36" name="age">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>737</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="44" parent="36" name="person_pkey">
-      <ObjectId>16390</ObjectId>
-      <StateNumber>737</StateNumber>
+    <index id="38" parent="34" name="passport_pkey">
+      <ObjectId>24586</ObjectId>
+      <StateNumber>782</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1064,18 +1018,61 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="45" parent="36" name="person_pkey">
-      <ObjectId>16391</ObjectId>
-      <StateNumber>737</StateNumber>
+    <key id="39" parent="34" name="passport_pkey">
+      <ObjectId>24587</ObjectId>
+      <StateNumber>782</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>passport_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="40" parent="34" name="passport_id_fkey">
+      <ObjectId>24588</ObjectId>
+      <StateNumber>782</StateNumber>
+      <ColNames>id</ColNames>
+      <RefTableId>24578</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>person</RefTableName>
+      <RefKeyName>person_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="41" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>779</StateNumber>
+      <TypeId>23</TypeId>
+      <IdentityKind>by-default</IdentityKind>
+    </column>
+    <column id="42" parent="35" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>779</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="35" name="age">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>779</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="44" parent="35" name="person_pkey">
+      <ObjectId>24581</ObjectId>
+      <StateNumber>779</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="45" parent="35" name="person_pkey">
+      <ObjectId>24582</ObjectId>
+      <StateNumber>779</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
     </key>
-    <check id="46" parent="36" name="person_age_check">
-      <ObjectId>16389</ObjectId>
-      <StateNumber>737</StateNumber>
-      <ColNames>age</ColNames>
-      <Predicate>age &lt; 100</Predicate>
-    </check>
   </database-model>
 </dataSource>
