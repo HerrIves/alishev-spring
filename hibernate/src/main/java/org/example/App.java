@@ -20,16 +20,19 @@ public class App {
                 .addAnnotatedClass(Person.class)
                 .addAnnotatedClass(Passport.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
 
-        try {
+        try (sessionFactory){
+            Session session = sessionFactory.getCurrentSession();
+
             session.beginTransaction();
-
-            Person person = new Person("Pasha", 37);
-            Passport passport = new Passport(777);
-            person.setPassport(passport);
-            session.save(person);
+            System.out.println(session.get(Person.class, 1));
             session.getTransaction().commit();
+
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            System.out.println(session.get(Person.class,1));
+            session.getTransaction().commit();
+
 
 /*
             Person person1 = session.get(Person.class, 5);
@@ -41,9 +44,6 @@ public class App {
             session.delete(person2);
             session.getTransaction().commit();
 */
-
-        } finally {
-            sessionFactory.close();
         }
 
 
