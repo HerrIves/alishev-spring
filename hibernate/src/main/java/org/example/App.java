@@ -1,13 +1,13 @@
 package org.example;
 
-import org.example.model.Item;
-import org.example.model.Passport;
-import org.example.model.Person;
-
+import org.example.model.Actor;
+import org.example.model.Movie;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,35 +17,43 @@ public class App {
     public static void main(String[] args) {
 
         Configuration configuration = new Configuration()
-                .addAnnotatedClass(Person.class)
-                .addAnnotatedClass(Passport.class);
+                .addAnnotatedClass(Actor.class)
+                .addAnnotatedClass(Movie.class);
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
         try (sessionFactory){
-            Session session = sessionFactory.getCurrentSession();
-
+            Session session = sessionFactory.openSession();
             session.beginTransaction();
-            System.out.println(session.get(Person.class, 1));
-            session.getTransaction().commit();
-
-            session = sessionFactory.openSession();
-            session.beginTransaction();
-            System.out.println(session.get(Person.class,1));
-            session.getTransaction().commit();
-
-
 /*
-            Person person1 = session.get(Person.class, 5);
-            person1.getPassport()
-                    .setNumber(888);
-            session.getTransaction().commit();
+            Actor actor = new Actor("Jonny Depp", 55);
+            Actor actor1 = new Actor("Nobody", 66);
+            Movie movie = new Movie("Deadman", 1988);
 
-            Person person2 = session.get(Person.class, 5);
-            session.delete(person2);
-            session.getTransaction().commit();
+            actor.setMovies(List.of(movie));
+            actor1.setMovies(List.of(movie));
+            movie.setActors(List.of(actor, actor1));
+
+            session.save(actor);
+            session.save(actor1);
+            session.save(movie);
+
+            Movie movie = new Movie("Alice in Dreamland", 2008);
+            Actor actor = session.get(Actor.class, 1);
+
+            movie.setActors(List.of(actor));
+            actor.getMovies().add(movie);
+            session.save(movie);
 */
+            Movie movie = session.get(Movie.class, 1);
+            Actor actor = session.get(Actor.class, 1);
+            System.out.println(movie);
+            System.out.println(movie.getActors().contains(actor));
+
+            actor.getMovies().remove(movie);
+            movie.getActors().remove(actor);
+
+            session.getTransaction().commit();
+
         }
-
-
     }
 }

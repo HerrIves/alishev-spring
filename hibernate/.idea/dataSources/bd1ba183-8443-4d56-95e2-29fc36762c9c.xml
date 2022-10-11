@@ -786,7 +786,7 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1665345451</StartupTime>
+      <StartupTime>1665474931</StartupTime>
     </root>
     <database id="2" parent="1" name="admin">
       <ObjectId>16384</ObjectId>
@@ -796,9 +796,10 @@ true posixrules
       <ObjectId>13769</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>783</IntrospectionStateNumber>
+      <IntrospectionStateNumber>837</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|24577|24578|1
+      <Relations>sequence|table|32824|32825|1
+sequence|table|32778|32779|1
 </Relations>
     </database>
     <role id="4" parent="1" name="admin">
@@ -878,7 +879,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>784</IntrospectionStateNumber>
+      <IntrospectionStateNumber>838</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="3" name="plpgsql">
@@ -978,88 +979,57 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="33" parent="20" name="person_id_seq">
-      <ObjectId>24577</ObjectId>
+    <sequence id="33" parent="20" name="actor_id_seq">
+      <ObjectId>32824</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>779</StateNumber>
+      <StateNumber>831</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="34" parent="20" name="passport">
-      <ObjectId>24583</ObjectId>
+    <sequence id="34" parent="20" name="movie_id_seq">
+      <ObjectId>32778</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>782</StateNumber>
-    </table>
-    <table id="35" parent="20" name="person">
-      <ObjectId>24578</ObjectId>
+      <StateNumber>807</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="35" parent="20" name="actor">
+      <ObjectId>32825</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>836</StateNumber>
     </table>
-    <column id="36" parent="34" name="id">
+    <table id="36" parent="20" name="actor_movie">
+      <ObjectId>32833</ObjectId>
+      <Owner>admin</Owner>
+      <StateNumber>836</StateNumber>
+    </table>
+    <table id="37" parent="20" name="movie">
+      <ObjectId>32779</ObjectId>
+      <Owner>admin</Owner>
+      <StateNumber>808</StateNumber>
+    </table>
+    <column id="38" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="37" parent="34" name="number">
-      <Position>2</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="38" parent="34" name="passport_pkey">
-      <ObjectId>24586</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0</CollationIds>
-      <ClassIds>1978</ClassIds>
-    </index>
-    <key id="39" parent="34" name="passport_pkey">
-      <ObjectId>24587</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>passport_pkey</UnderlyingIndexName>
-    </key>
-    <foreign-key id="40" parent="34" name="passport_id_fkey">
-      <ObjectId>24588</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>id</ColNames>
-      <RefTableId>24578</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>person</RefTableName>
-      <RefKeyName>person_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="41" parent="35" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>779</StateNumber>
+      <StateNumber>831</StateNumber>
       <TypeId>23</TypeId>
       <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="42" parent="35" name="name">
+    <column id="39" parent="35" name="name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>779</StateNumber>
+      <StateNumber>831</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="35" name="age">
+    <column id="40" parent="35" name="age">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>779</StateNumber>
+      <StateNumber>831</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="44" parent="35" name="person_pkey">
-      <ObjectId>24581</ObjectId>
-      <StateNumber>779</StateNumber>
+    <index id="41" parent="35" name="actor_pkey">
+      <ObjectId>32829</ObjectId>
+      <StateNumber>831</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1067,12 +1037,131 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="45" parent="35" name="person_pkey">
-      <ObjectId>24582</ObjectId>
-      <StateNumber>779</StateNumber>
+    <index id="42" parent="35" name="actor_name_key">
+      <ObjectId>32831</ObjectId>
+      <StateNumber>831</StateNumber>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="43" parent="35" name="actor_pkey">
+      <ObjectId>32830</ObjectId>
+      <StateNumber>831</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>person_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>actor_pkey</UnderlyingIndexName>
     </key>
+    <key id="44" parent="35" name="actor_name_key">
+      <ObjectId>32832</ObjectId>
+      <StateNumber>831</StateNumber>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>actor_name_key</UnderlyingIndexName>
+    </key>
+    <check id="45" parent="35" name="actor_age_check">
+      <ObjectId>32828</ObjectId>
+      <StateNumber>831</StateNumber>
+      <ColNames>age</ColNames>
+      <Predicate>age &gt; 0</Predicate>
+    </check>
+    <column id="46" parent="36" name="actor_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>836</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="36" name="movie_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>836</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="48" parent="36" name="actor_movie_pkey">
+      <ObjectId>32836</ObjectId>
+      <StateNumber>836</StateNumber>
+      <ColNames>actor_id
+movie_id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0,0</CollationIds>
+      <ClassIds>1978,1978</ClassIds>
+    </index>
+    <key id="49" parent="36" name="actor_movie_pkey">
+      <ObjectId>32837</ObjectId>
+      <StateNumber>836</StateNumber>
+      <ColNames>actor_id
+movie_id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>actor_movie_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="50" parent="36" name="actor_movie_actor_id_fkey">
+      <ObjectId>32838</ObjectId>
+      <StateNumber>836</StateNumber>
+      <ColNames>actor_id</ColNames>
+      <RefTableId>32825</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>actor</RefTableName>
+      <RefKeyName>actor_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="51" parent="36" name="actor_movie_movie_id_fkey">
+      <ObjectId>32843</ObjectId>
+      <StateNumber>836</StateNumber>
+      <ColNames>movie_id</ColNames>
+      <RefTableId>32779</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>movie</RefTableName>
+      <RefKeyName>movie_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="52" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>807</StateNumber>
+      <TypeId>23</TypeId>
+      <IdentityKind>by-default</IdentityKind>
+    </column>
+    <column id="53" parent="37" name="name">
+      <Position>2</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>807</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="54" parent="37" name="year_of_prod">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>807</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="55" parent="37" name="movie_pkey">
+      <ObjectId>32783</ObjectId>
+      <StateNumber>807</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="56" parent="37" name="movie_pkey">
+      <ObjectId>32784</ObjectId>
+      <StateNumber>807</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>movie_pkey</UnderlyingIndexName>
+    </key>
+    <check id="57" parent="37" name="movie_year_of_prod_check">
+      <ObjectId>32782</ObjectId>
+      <StateNumber>807</StateNumber>
+      <ColNames>year_of_prod</ColNames>
+      <Predicate>year_of_prod &gt; 1900</Predicate>
+    </check>
   </database-model>
 </dataSource>
