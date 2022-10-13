@@ -16,6 +16,10 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
 
+        Movie movie;
+        Actor actor;
+
+
         Configuration configuration = new Configuration()
                 .addAnnotatedClass(Actor.class)
                 .addAnnotatedClass(Movie.class);
@@ -44,8 +48,8 @@ public class App {
             actor.getMovies().add(movie);
             session.save(movie);
 */
-            Movie movie = session.get(Movie.class, 1);
-            Actor actor = session.get(Actor.class, 1);
+            movie = session.get(Movie.class, 1);
+            actor = session.get(Actor.class, 1);
             System.out.println(movie);
             System.out.println(movie.getActors().contains(actor));
 
@@ -55,5 +59,8 @@ public class App {
             session.getTransaction().commit();
 
         }
+        System.out.println(actor.getMovies());
+        System.out.println(movie.getActors());
+
     }
 }
