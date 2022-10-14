@@ -27,6 +27,12 @@ public class Person {
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
 
+    @Column
+    @NotEmpty(message = "empty")
+    @Email
+    private String email;
+
+
     public Person() {    }
 
     public Person(String name, int age) {
@@ -54,4 +60,7 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public String getEmail() {        return email;    }
+    public void setEmail(String email) {        this.email = email;    }
 }

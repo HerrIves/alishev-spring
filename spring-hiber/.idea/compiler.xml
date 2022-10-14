@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-jdbc-template" target="8" />
+      <module name="spring-jdbc-template" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

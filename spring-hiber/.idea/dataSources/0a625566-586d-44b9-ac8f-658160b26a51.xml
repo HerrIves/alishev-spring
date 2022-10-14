@@ -796,7 +796,7 @@ true posixrules
       <ObjectId>13769</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>857</IntrospectionStateNumber>
+      <IntrospectionStateNumber>861</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|32848|32849|1
 </Relations>
@@ -878,7 +878,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>admin</Owner>
-      <IntrospectionStateNumber>858</IntrospectionStateNumber>
+      <IntrospectionStateNumber>862</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="3" name="plpgsql">
@@ -987,7 +987,7 @@ UC/10
     <table id="34" parent="20" name="person">
       <ObjectId>32849</ObjectId>
       <Owner>admin</Owner>
-      <StateNumber>856</StateNumber>
+      <StateNumber>860</StateNumber>
     </table>
     <column id="35" parent="34" name="id">
       <Position>1</Position>
@@ -1009,7 +1009,29 @@ UC/10
       <StateNumber>856</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <check id="38" parent="34" name="person_age_check">
+    <column id="38" parent="34" name="email">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>860</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="39" parent="34" name="person_email_key">
+      <ObjectId>32853</ObjectId>
+      <StateNumber>860</StateNumber>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="40" parent="34" name="person_email_key">
+      <ObjectId>32854</ObjectId>
+      <StateNumber>860</StateNumber>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>person_email_key</UnderlyingIndexName>
+    </key>
+    <check id="41" parent="34" name="person_age_check">
       <ObjectId>32852</ObjectId>
       <StateNumber>856</StateNumber>
       <ColNames>age</ColNames>
