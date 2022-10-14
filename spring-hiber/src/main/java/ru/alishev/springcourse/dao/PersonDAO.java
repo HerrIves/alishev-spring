@@ -42,6 +42,7 @@ public class PersonDAO {
         session.save(person);
     }
 
+    @Transactional
     public void update(int id, Person updatedPerson) {
         Session session = sessionFactory.getCurrentSession();
         Person person = session.get(Person.class, id);
@@ -51,6 +52,7 @@ public class PersonDAO {
         session.save(person);
     }
 
+    @Transactional
     public void delete(int id) {
         Session session = sessionFactory.getCurrentSession();
         Person person = session.get(Person.class, id);
