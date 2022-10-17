@@ -2,22 +2,19 @@ package ru.alishev.springcourse.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import org.springframework.transaction.annotation.Transactional;
 import ru.alishev.springcourse.models.Person;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.List.*;
 
-@Component
+//@Component
 public class PersonDAO {
 
     private final SessionFactory sessionFactory;
 
-    @Autowired
+//    @Autowired
     public PersonDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
