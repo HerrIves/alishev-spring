@@ -1,6 +1,7 @@
 package ru.alishev.springcourse.services;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,7 @@ public class PersonService {
 
     @Transactional
     public void savePerson(Person person){
+        person.setCreatedAt(new Date());
         repository.save(person);
     }
 
