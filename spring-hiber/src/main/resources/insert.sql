@@ -23,3 +23,7 @@ insert into Item(person_id, item_name) VALUES (3, 'kindle');
 insert into Item(person_id, item_name) VALUES (3, 'TV');
 insert into Item(person_id, item_name) VALUES (3, 'Playstation');
 
+
+
+alter table person add column date_of_birth date;
+alter table person add column created_at timestamp;
