@@ -13,6 +13,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="entityManagerFactory" value="0a625566-586d-44b9-ac8f-658160b26a51" />
           <factory-entry name="factoryBean" />
           <factory-entry name="spring-jdbc-template" />
         </datasource-mapping>

@@ -45,4 +45,8 @@ public class PersonService {
     public void deletePerson(int id){
         repository.deleteById(id);
     }
+
+    public void test(){
+        System.out.println("testing");
+    }
 }
