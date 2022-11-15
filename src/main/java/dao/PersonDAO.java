@@ -4,6 +4,7 @@ import models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import utils.PersonRowMapper;
 
 import java.sql.SQLException;
 
@@ -23,7 +24,7 @@ public class PersonDAO {
     }
 
     public Person readPerson(int id) {
-        return null;
+        return jdbcTemplate.queryForObject("SELECT * FROM Person WHERE Id = ?", new PersonRowMapper(), new Object[]{id});
     }
 
     public void updatePerson(Person person) {
