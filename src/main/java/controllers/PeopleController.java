@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class JDBCTemplateController {
+public class PeopleController {
 
     private PersonDAO personDAO;
 
     @Autowired
-    JDBCTemplateController(PersonDAO personDAO){
+    public PeopleController(PersonDAO personDAO){
         this.personDAO = personDAO;
     }
 
