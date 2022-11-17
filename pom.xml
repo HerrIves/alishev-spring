@@ -18,7 +18,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
 
-    <spring.version>5.3.5</spring.version>
+    <spring.version>5.2.1.RELEASE</spring.version>
   </properties>
 
   <dependencies>
@@ -84,14 +84,6 @@
       <artifactId>postgresql</artifactId>
       <version>42.2.18</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
-      <optional>true</optional>
-    </dependency>
-
   </dependencies>
 
   <build>

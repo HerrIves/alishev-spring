@@ -28,7 +28,7 @@ public class PersonDAO {
     }
 
     public void updatePerson(Person person) {
-
+        jdbcTemplate.up
     }
 
     public void deletePerson(Person person) {
