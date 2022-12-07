@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import sun.text.normalizer.NormalizerBase;
 import utils.PersonValidator;
 
 import javax.validation.Valid;
@@ -43,7 +44,8 @@ public class PeopleController {
         return "people/new";
     }
 
-    public String create(@ModelAttribute("person")@Valid Person person,
+    @PostMapping()
+    public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult){
         personValidator.validate(person, bindingResult);
 
@@ -51,6 +53,28 @@ public class PeopleController {
             return "people/new";
 
         personDAO.save(person);
+        return "redirect:/people";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id")int id){
+        model.addAttribute("person", personDAO.show(id));
+        return "people/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
+                         @PathVariable("id")int id){
+        if (bindingResult.hasErrors())
+            return "people/edit";
+
+        personDAO.updatePerson(id, person);
+        return "redirect:/people";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deletePerson(@PathVariable("id")int id){
+        personDAO.deletePerson(id);
         return "redirect:/people";
     }
 }
