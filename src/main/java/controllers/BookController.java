@@ -75,7 +75,5 @@ public class BookController {
         bookDAO.delete(id);
         return "redirect:/books";
     }
-
-
 }
 
