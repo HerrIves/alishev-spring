@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import utils.PersonRowMapper;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -29,12 +28,12 @@ public class PersonDAO {
                 .stream().findAny().orElse(null);
     }
 
-    public void save(Person person) throws SQLException {
-        jdbcTemplate.update("INSERT INTO Person VALUES(?, ?)", person.getName(), person.getAge());
+    public void save(Person person){
+        jdbcTemplate.update("INSERT INTO Person VALUES(?, ?)", person.getFullName(), person.getYearOfBirth());
     }
 
     public void updatePerson(int id, Person person) {
-        jdbcTemplate.update("UPDATE Person SET name=?, age=? WHERE id=?", person.getName(), person.getAge(), id);
+        jdbcTemplate.update("UPDATE Person SET name=?, age=? WHERE id=?", person.getFullName(), person.getYearOfBirth(), id);
     }
 
     public void deletePerson(int id) {

@@ -1,14 +1,26 @@
 package models;
 
-
-import lombok.Builder;
 import lombok.Data;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 public class Book {
     private int id;
-    private String name;
+
+    @NotEmpty
+    @Size(min = 2, max = 100, message = "title between 2 and 100")
+    private String title;
+
+    @NotEmpty
+    @Size(min = 2, max = 100, message = "author between 2 and 100")
     private String author;
+
+    @Min(value = 1500, message = "year min 1500")
     private int year;
-    private Person owner;
 }

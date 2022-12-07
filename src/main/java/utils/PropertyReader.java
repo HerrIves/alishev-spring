@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class readProperties {
+public class PropertyReader {
 
     public static Properties databaseProperties(String databaseProperties){
         Properties properties = new Properties();

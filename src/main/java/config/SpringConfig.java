@@ -17,7 +17,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-import static utils.readProperties.databaseProperties;
+import static utils.PropertyReader.databaseProperties;
 
 
 @Configuration
