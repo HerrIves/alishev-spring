@@ -1,11 +1,13 @@
 package dao;
 
 import models.Book;
+import models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BookDAO {
     private final JdbcTemplate jdbcTemplate;
@@ -34,5 +36,9 @@ public class BookDAO {
 
     public void delete(int id) {
         jdbcTemplate.update("DELETE FROM Book WHERE id=?", id);
+    }
+
+    public Optional<Person> getBookOwner(int id) {
+        return null;
     }
 }

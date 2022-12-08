@@ -1,5 +1,7 @@
 package controllers;
 
+import dao.PersonDAO;
+import models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +19,13 @@ import models.Book;
 @RequestMapping("/books")
 public class BookController {
     private BookDAO bookDAO;
+    private final PersonDAO personDAO;
     private final BookValidator bookValidator;
 
     @Autowired
-    public BookController(BookDAO bookDAO, BookValidator bookValidator) {
+    public BookController(BookDAO bookDAO, PersonDAO personDAO, BookValidator bookValidator) {
         this.bookDAO = bookDAO;
+        this.personDAO = personDAO;
         this.bookValidator = bookValidator;
     }
 
@@ -33,6 +37,10 @@ public class BookController {
     @GetMapping("/{id}")
     public String show(Model model, @PathVariable("id")int id){
         model.addAttribute("book", bookDAO.show(id));
+
+        bookDAO.getBookOwner(id)
+                .ifPresentOrElse(owner -> model.addAttribute("owner", owner),
+                                   ()  -> model.addAttribute("people", personDAO.index()));
         return "/book/show";
     }
 
@@ -74,6 +82,18 @@ public class BookController {
     public String delete(@PathVariable("id")int id){
         bookDAO.delete(id);
         return "redirect:/books";
+    }
+
+    @PatchMapping("/{id/release}")
+    public String release(@PathVariable("id") int id){
+        bookDAO.release(id);
+        return "redirect:/books/"+id;
+    }
+
+    @PatchMapping("/{id}/assign")
+    public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person selectedPerson){
+        bookDAO.assign(id, selectedPerson);
+        return "redirect:/books/"+id;
     }
 }
 
