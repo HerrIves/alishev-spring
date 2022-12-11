@@ -61,7 +61,7 @@ public class SpringConfig implements WebMvcConfigurer {
 
     @Bean
     public DataSource dataSource(){
-        Properties databaseProperties = databaseProperties("database.properties");
+        Properties databaseProperties = databaseProperties("src/main/resources/database.properties");
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 

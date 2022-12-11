@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import utils.BookValidator;
 
 import dao.BookDAO;
 import models.Book;
@@ -20,13 +19,11 @@ import models.Book;
 public class BookController {
     private BookDAO bookDAO;
     private final PersonDAO personDAO;
-    private final BookValidator bookValidator;
 
     @Autowired
-    public BookController(BookDAO bookDAO, PersonDAO personDAO, BookValidator bookValidator) {
+    public BookController(BookDAO bookDAO, PersonDAO personDAO) {
         this.bookDAO = bookDAO;
         this.personDAO = personDAO;
-        this.bookValidator = bookValidator;
     }
 
     public String index(Model model){
@@ -52,7 +49,6 @@ public class BookController {
     @PostMapping()
     public String create(@ModelAttribute("book")@Valid Book book,
                          BindingResult bindingResult){
-        bookValidator.validate(book, bindingResult);
         if (bindingResult.hasErrors())
             return "book/new";
 
@@ -69,8 +65,6 @@ public class BookController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("book")@Valid Book book, @PathVariable("id")int id,
                          BindingResult bindingResult){
-
-        bookValidator.validate(book, bindingResult);
         if (bindingResult.hasErrors())
             return "book/edit";
 
