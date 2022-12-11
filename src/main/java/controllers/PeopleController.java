@@ -69,13 +69,13 @@ public class PeopleController {
         if (bindingResult.hasErrors())
             return "people/edit";
 
-        personDAO.updatePerson(id, person);
+        personDAO.update(id, person);
         return "redirect:/people";
     }
 
     @DeleteMapping("/{id}")
     public String deletePerson(@PathVariable("id")int id){
-        personDAO.deletePerson(id);
+        personDAO.delete(id);
         return "redirect:/people";
     }
 }

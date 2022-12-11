@@ -27,11 +27,11 @@ public class BookDAO {
     }
 
     public void save(Book book) {
-        jdbcTemplate.update("INSERT INTO Book VALUES()", book.getTitle(), book.getAuthor(), book.getYear());
+        jdbcTemplate.update("INSERT INTO Book(title, author, year) VALUES(?,?,?)", book.getTitle(), book.getAuthor(), book.getYear());
     }
 
-    public void update(int id, Book book) {
-        jdbcTemplate.update("UPDATE Book SET name=?, author=?, year=?, owner=? WHERE id=?", book.getTitle(), book.getAuthor(), book.getYear(),  id);
+    public void update(int id, Book updatedBook) {
+        jdbcTemplate.update("UPDATE Book SET name=?, author=?, year=?, owner=? WHERE id=?", updatedBook.getTitle(), updatedBook.getAuthor(), updatedBook.getYear(),  id);
     }
 
     public void delete(int id) {
@@ -39,6 +39,15 @@ public class BookDAO {
     }
 
     public Optional<Person> getBookOwner(int id) {
-        return null;
+        return jdbcTemplate.query("SELECT Person.* FROM Book JOIN Person ON Book.person_id = Person.id"+
+                "WHERE Book.id = ?", new Object[]{id}, new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
+    }
+
+    public void release(int id){
+        jdbcTemplate.update("UPDATE Book SET person_id = NULL WHERE id = ?", id);
+    }
+
+    public void assign(int id, Person selectedPerson){
+        jdbcTemplate.update("UPDATE Book SET person_id=? WHERE id=?", selectedPerson.getId(), id);
     }
 }

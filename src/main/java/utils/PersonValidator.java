@@ -22,7 +22,7 @@ public class PersonValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if (personDAO.getPersonByFullName(person.getFullName()).isPersent())
+        if (personDAO.getPersonByFullName(person.getFullName()).isPresent())
             errors.rejectValue("name", "", "Allready xist");
     }
 }
