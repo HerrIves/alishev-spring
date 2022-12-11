@@ -26,6 +26,7 @@ public class PeopleController {
         this.personValidator = personValidator;
     }
 
+    @GetMapping
     public String index(Model model){
         model.addAttribute("people", personDAO.index());
         return "people/index";
