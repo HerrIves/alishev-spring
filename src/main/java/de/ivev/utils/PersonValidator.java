@@ -1,10 +1,12 @@
-package utils;
+package de.ivev.utils;
 
-import dao.PersonDAO;
-import models.Person;
+import de.ivev.dao.PersonDAO;
+import de.ivev.models.Person;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+@Component
 public class PersonValidator implements Validator {
 
     private final PersonDAO personDAO;

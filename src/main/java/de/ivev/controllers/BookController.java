@@ -1,7 +1,9 @@
-package controllers;
+package de.ivev.controllers;
 
-import dao.PersonDAO;
-import models.Person;
+import de.ivev.dao.BookDAO;
+import de.ivev.dao.PersonDAO;
+import de.ivev.models.Book;
+import de.ivev.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
-import dao.BookDAO;
-import models.Book;
 
 
 @Controller

@@ -1,4 +1,4 @@
-package config;
+package de.ivev.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,13 +15,10 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
-import java.util.Properties;
-
-import static utils.PropertyReader.databaseProperties;
 
 
 @Configuration
-@ComponentScan
+@ComponentScan("de.ivev")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
@@ -33,7 +30,7 @@ public class SpringConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/views/");
@@ -43,7 +40,7 @@ public class SpringConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setEnableSpringELCompiler(true);
@@ -61,19 +58,23 @@ public class SpringConfig implements WebMvcConfigurer {
 
     @Bean
     public DataSource dataSource(){
-        Properties databaseProperties = databaseProperties("src/main/resources/database.properties");
+//        Properties databaseProperties = databaseProperties("src/main/resources/database.properties");
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName(databaseProperties.getProperty("driver"));
-        dataSource.setUrl(databaseProperties.getProperty("url"));
-        dataSource.setUsername(databaseProperties.getProperty("user"));
-        dataSource.setPassword(databaseProperties.getProperty("password"));
+        dataSource.setDriverClassName("org.postgresql.Driver");
+//                databaseProperties.getProperty("driver"));
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+//                databaseProperties.getProperty("url"));
+        dataSource.setUsername("admin");
+//                databaseProperties.getProperty("user"));
+        dataSource.setPassword("root");
+//                databaseProperties.getProperty("password"));
         return dataSource;
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate(){
+    public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
 }

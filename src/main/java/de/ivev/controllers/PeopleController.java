@@ -1,17 +1,15 @@
-package controllers;
+package de.ivev.controllers;
 
+import de.ivev.dao.PersonDAO;
+import de.ivev.models.Person;
+import de.ivev.utils.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import utils.PersonValidator;
 import javax.validation.Valid;
-
-import dao.PersonDAO;
-import models.Person;
-
 
 @Controller
 @RequestMapping("/people")

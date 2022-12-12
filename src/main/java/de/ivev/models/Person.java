@@ -1,4 +1,4 @@
-package models;
+package de.ivev.models;
 
 import lombok.Data;
 

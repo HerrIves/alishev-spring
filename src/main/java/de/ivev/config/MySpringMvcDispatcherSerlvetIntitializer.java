@@ -1,4 +1,4 @@
-package config;
+package de.ivev.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
@@ -10,16 +10,21 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import java.util.EnumSet;
 
-public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class MySpringMvcDispatcherSerlvetIntitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
-    protected Class<?>[] getRootConfigClasses() {return null;}
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {return new Class[]{SpringConfig.class};
+    protected Class<?>[] getRootConfigClasses() {
+        return null;
     }
 
     @Override
-    protected String[] getServletMappings() {return new String[]{"/"};    }
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{SpringConfig.class};
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
 
     @Override
     public void onStartup(ServletContext aServletContext) throws ServletException {

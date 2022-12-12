@@ -12,6 +12,6 @@ public class SpringJdbcConfigTest {
     public void databaseProperties() {
         ClassLoader classLoader = this.getClass().getClassLoader();
         File file = new File(classLoader.getResource("database.properties").getFile());
-        assertTrue(file.exists());
+        assertTrue(file.canRead());
     }
 }

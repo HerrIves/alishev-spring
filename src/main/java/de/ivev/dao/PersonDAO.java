@@ -1,7 +1,7 @@
-package dao;
+package de.ivev.dao;
 
-import models.Book;
-import models.Person;
+import de.ivev.models.Book;
+import de.ivev.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
