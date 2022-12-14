@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 /spring-mvc/target/
 
+=======
+/target/
+/.idea/
+>>>>>>> 4d27dc6 (chema.sql, models, added)
