@@ -25,7 +25,7 @@ public class BookController {
         this.personDAO = personDAO;
     }
 
-    @GetMapping()
+    @GetMapping
     public String index(Model model){
         model.addAttribute("books", bookDAO.index());
         return "/book/index";
