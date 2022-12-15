@@ -32,7 +32,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public String show(Model model, @PathVariable("id")int id){
+    public String show(@PathVariable("id")int id, Model model){
         model.addAttribute("book", bookDAO.show(id));
 
         bookDAO.getBookOwner(id)
