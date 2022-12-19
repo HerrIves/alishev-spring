@@ -4,6 +4,8 @@
 =======
 /target/
 /project1/target/
+/project2/target/
+
 
 /.idea/
 >>>>>>> 4d27dc6 (chema.sql, models, added)
