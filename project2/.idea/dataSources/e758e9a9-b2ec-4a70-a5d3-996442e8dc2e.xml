@@ -993,6 +993,7 @@ UC/10
     </sequence>
     <table id="35" parent="20" name="book">
       <ObjectId>57354</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>admin</Owner>
       <StateNumber>979</StateNumber>
     </table>
