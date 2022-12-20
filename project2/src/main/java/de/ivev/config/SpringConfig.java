@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -17,6 +19,8 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("de.ivev")
+@PropertySource("classpath:hibernate.properties")
+@EnableJpaRepositories("de.ivev.repositories")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 

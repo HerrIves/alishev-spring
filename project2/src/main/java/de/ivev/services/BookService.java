@@ -20,7 +20,7 @@ public class BookService {
     }
 
     public List<Book> findAll() {
-        return null;
+        return bookRepository.findAll();
     }
 
     public Book findOne(int id) {
