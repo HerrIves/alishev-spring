@@ -1,11 +1,12 @@
 package de.ivev.services;
 
-import org.junit.Before;
+import de.ivev.repositories.BookRepository;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BookServiceTest {
-    BookService bookService = new BookService();
+    BookRepository bookRepository;
+    BookService bookService = new BookService(bookRepository);
 
 
 
