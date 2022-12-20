@@ -6,7 +6,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,20 +23,24 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
-
+import java.util.Properties;
 
 @Configuration
 @ComponentScan("de.ivev")
 @PropertySource("classpath:hibernate.properties")
 @EnableJpaRepositories("de.ivev.repositories")
+@EnableTransactionManagement
+
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
+    private final Environment env;
 
     @Autowired
-    public SpringConfig(ApplicationContext applicationContext) {
+    public SpringConfig(ApplicationContext applicationContext, Environment env) {
         this.applicationContext = applicationContext;
+        this.env = env;
     }
 
     @Bean
@@ -58,28 +70,75 @@ public class SpringConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
-/*
     @Bean
     public DataSource dataSource(){
-//        Properties databaseProperties = databaseProperties("src/main/resources/database.properties");
-
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("org.postgresql.Driver");
-//                databaseProperties.getProperty("driver"));
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-//                databaseProperties.getProperty("url"));
-        dataSource.setUsername("admin");
-//                databaseProperties.getProperty("user"));
-        dataSource.setPassword("root");
-//                databaseProperties.getProperty("password"));
+        dataSource.setDriverClassName(      //"org.postgresql.Driver");
+            env.getProperty("driver"));
+        dataSource.setUrl(                  //"jdbc:postgresql://localhost:5432/postgres");
+            env.getProperty("url"));
+        dataSource.setUsername(             //"admin");
+             env.getProperty("user"));
+        dataSource.setPassword(             //"root");
+            env.getProperty("password"));
+
         return dataSource;
     }
 
-    @Bean
-    public JdbcTemplate jdbcTemplate() {
-        return new JdbcTemplate(dataSource());
+
+    private Properties hibernateProperties(){
+        Properties properties = new Properties();
+
+        properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
+        properties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
+
+        return properties;
     }
 
-*/
+    @Bean
+    public LocalContainerEntityManagerFactoryBean sessionFactory(){
+        LocalSessionFactoryBean sessionFactory = new ();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setPackagesToScan("ru.alishev.springcourse.models");
+        sessionFactory.setHibernateProperties(hibernateProperties());
+
+        return sessionFactory;
+    }
+
+//    @Bean
+//    public JdbcTemplate jdbcTemplate() {
+//        return new JdbcTemplate(dataSource());
+//    }
+    @Bean
+    public PlatformTransactionManager transactionManager(){
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(sessionFactory().getObject());
+        return transactionManager;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
