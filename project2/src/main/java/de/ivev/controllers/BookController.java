@@ -3,6 +3,7 @@ package de.ivev.controllers;
 import de.ivev.models.Book;
 import de.ivev.models.Person;
 import de.ivev.services.BookService;
+
 import de.ivev.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/books")
 public class BookController {
-    private final BookService bookService;
+    private BookService bookService;
     private final PersonService personService;
 
     @Autowired
@@ -49,7 +50,7 @@ public class BookController {
         if (bindingResult.hasErrors())
             return "book/new";
 
-        bookService.savePerson(book);
+        bookService.saveBook(book);
         return "redirect:/books";
     }
 

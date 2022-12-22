@@ -1,43 +1,44 @@
 package de.ivev.controllers;
 
-import de.ivev.dao.PersonDAO;
 import de.ivev.models.Person;
+import de.ivev.services.PersonService;
 import de.ivev.utils.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
 
-    private PersonDAO personDAO;
+    private final PersonService personService;
     private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleController(PersonDAO personDAO, PersonValidator personValidator){
-        this.personDAO = personDAO;
+    public PeopleController(PersonService personService, PersonValidator personValidator) {
+        this.personService = personService;
         this.personValidator = personValidator;
     }
 
+
     @GetMapping
     public String index(Model model){
-        model.addAttribute("people", personDAO.index());
+        model.addAttribute("people", personService.findAll());
         return "people/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id")int id, Model model){
-        model.addAttribute("person", personDAO.show(id));
-        model.addAttribute("books", personDAO.getBooksByPersonId(id));
+        model.addAttribute("person", personService.findOne(id));
+//        model.addAttribute("books", personDAO.getBooksByPersonId(id));
 
         return "people/show";
     }
-
+/*
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person){
         return "people/new";
@@ -76,4 +77,6 @@ public class PeopleController {
         personDAO.delete(id);
         return "redirect:/people";
     }
+
+ */
 }

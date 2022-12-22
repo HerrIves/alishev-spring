@@ -1,8 +1,9 @@
 package de.ivev.models;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
+
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -12,7 +13,7 @@ import javax.validation.constraints.Size;
 @Table(name = "Person")
 public class Person {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
 

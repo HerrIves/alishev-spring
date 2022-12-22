@@ -1,7 +1,7 @@
 package de.ivev.utils;
 
-import de.ivev.dao.PersonDAO;
 import de.ivev.models.Person;
+import de.ivev.services.PersonService;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -9,11 +9,12 @@ import org.springframework.validation.Validator;
 @Component
 public class PersonValidator implements Validator {
 
-    private final PersonDAO personDAO;
+    private final PersonService personService;
 
-    public PersonValidator(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public PersonValidator(PersonService personService) {
+        this.personService = personService;
     }
+
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -24,7 +25,7 @@ public class PersonValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Person person = (Person) o;
 
-        if (personDAO.getPersonByFullName(person.getFullName()).isPresent())
+        if (personService.getPersonByFullName(person.getFullName()).isPresent())
             errors.rejectValue("name", "", "Allready xist");
     }
 }

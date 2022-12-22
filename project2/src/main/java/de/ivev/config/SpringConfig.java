@@ -9,11 +9,13 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -30,7 +32,6 @@ import java.util.Properties;
 @PropertySource("classpath:hibernate.properties")
 @EnableJpaRepositories("de.ivev.repositories")
 @EnableTransactionManagement
-
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
@@ -74,14 +75,14 @@ public class SpringConfig implements WebMvcConfigurer {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName(      //"org.postgresql.Driver");
-            env.getProperty("driver"));
-        dataSource.setUrl(                  //"jdbc:postgresql://localhost:5432/postgres");
-            env.getProperty("url"));
-        dataSource.setUsername(             //"admin");
-             env.getProperty("user"));
-        dataSource.setPassword(             //"root");
-            env.getProperty("password"));
+        dataSource.setDriverClassName(      "org.postgresql.Driver");
+//            env.getProperty("driver"));
+        dataSource.setUrl(                  "jdbc:postgresql://localhost:5432/postgres");
+//            env.getProperty("url"));
+        dataSource.setUsername(             "admin");
+//             env.getProperty("user"));
+        dataSource.setPassword(             "root");
+//            env.getProperty("password"));
 
         return dataSource;
     }
@@ -97,8 +98,8 @@ public class SpringConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean sessionFactory(){
-        LocalSessionFactoryBean sessionFactory = new ();
+    public LocalSessionFactoryBean sessionFactory(){
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan("ru.alishev.springcourse.models");
         sessionFactory.setHibernateProperties(hibernateProperties());
@@ -106,39 +107,36 @@ public class SpringConfig implements WebMvcConfigurer {
         return sessionFactory;
     }
 
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("ru.alishev.springcourse.models");
+
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(hibernateProperties());
+
+        return em;
+    }
+
 //    @Bean
 //    public JdbcTemplate jdbcTemplate() {
 //        return new JdbcTemplate(dataSource());
 //    }
+//    @Bean
+//    public PlatformTransactionManager transactionManager(){
+//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+//        transactionManager.setSessionFactory(sessionFactory().getObject());
+//        return transactionManager;
+//    }
+
     @Bean
     public PlatformTransactionManager transactionManager(){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(sessionFactory().getObject());
         return transactionManager;
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

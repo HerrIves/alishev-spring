@@ -3,9 +3,9 @@ package de.ivev.services;
 import de.ivev.models.Book;
 import de.ivev.models.Person;
 import de.ivev.repositories.BookRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class BookService {
         return bookRepository.findById(id).get();
     }
 
-    public void savePerson(Book book) {
+    public void saveBook(Book book) {
 
     }
 

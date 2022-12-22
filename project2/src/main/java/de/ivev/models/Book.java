@@ -1,17 +1,18 @@
 package de.ivev.models;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Data
 @Entity
+@Table
 public class Book {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column
     private int id;
 
