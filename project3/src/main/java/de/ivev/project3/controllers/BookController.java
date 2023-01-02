@@ -74,7 +74,7 @@ public class BookController {
         return "redirect:/books";
     }
 
-    @PatchMapping("/{id/release}")
+    @PatchMapping("/{id}/release")
     public String release(@PathVariable("id") int id){
         bookService.releaseBook(id);
         return "redirect:/books/"+id;
