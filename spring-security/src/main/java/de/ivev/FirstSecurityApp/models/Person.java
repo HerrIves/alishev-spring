@@ -1,6 +1,6 @@
 package de.ivev.FirstSecurityApp.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table
