@@ -1,4 +1,4 @@
-package de.ivev.FirstSecurityApp.services;
+package de.ivev.FirstSecurityApp.security;
 
 import de.ivev.FirstSecurityApp.models.Person;
 import org.springframework.security.core.GrantedAuthority;
