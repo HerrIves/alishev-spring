@@ -1,9 +1,8 @@
 package de.ivev.FirstSecurityApp.config;
 
-import org.springframework.security.authentication.AuthenticationProvider;
+import de.ivev.FirstSecurityApp.security.AuthProviderImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -11,7 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    private final AuthProviderImpl authProvider;
+
+    @Autowired
+    public SecurityConfig(AuthProviderImpl authProvider) {
+        this.authProvider = authProvider;
+    }
+
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider();
+        auth.authenticationProvider(authProvider);
     }
 }
