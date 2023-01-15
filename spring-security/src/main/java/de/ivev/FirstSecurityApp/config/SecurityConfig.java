@@ -23,9 +23,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
-                .loginPage("/auth/login")
-                .loginProcessingUrl("process_login")
+        http.csrf().disable()   //disable csrf defense
+                .authorizeRequests()
+                .antMatchers("/auth/login", "/error").permitAll()
+                .anyRequest().authenticated()
+
+                .and()
+
+                .formLogin().loginPage("/auth/login")
+                .loginProcessingUrl("/process_login")
                 .defaultSuccessUrl("/hello", true)
                 .failureUrl("/auth/login?error");
     }
