@@ -48,13 +48,4 @@ public class AuthController {
 
         return "redirect:/auth/login";
     }
-
-    @GetMapping("/logout")
-    public String logout(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        authentication.setAuthenticated(false);
-
-        return "redirect:/hello";
-    }
-
 }
