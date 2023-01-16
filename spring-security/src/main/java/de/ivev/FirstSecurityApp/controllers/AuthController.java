@@ -29,20 +29,20 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public String loginPage(){
+    public String loginPage() {
         return "auth/login";
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("person") Person person){
+    public String registrationPage(@ModelAttribute("person") Person person) {
         return "auth/registration";
     }
 
     @PostMapping("/registration")
-    public String registrationComplete(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult){
+    public String registrationComplete(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
         personValidator.validate(person, bindingResult);
 
-        if (bindingResult.hasErrors())return "/auth/registration";
+        if (bindingResult.hasErrors()) return "/auth/registration";
 
         registrationService.register(person);
 
