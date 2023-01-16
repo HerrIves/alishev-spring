@@ -1,9 +1,12 @@
 package de.ivev.FirstSecurityApp.controllers;
 
 import de.ivev.FirstSecurityApp.models.Person;
+import de.ivev.FirstSecurityApp.security.PersonDetails;
 import de.ivev.FirstSecurityApp.services.RegistrationService;
 import de.ivev.FirstSecurityApp.utils.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,6 +47,14 @@ public class AuthController {
         registrationService.register(person);
 
         return "redirect:/auth/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authentication.setAuthenticated(false);
+
+        return "redirect:/hello";
     }
 
 }
