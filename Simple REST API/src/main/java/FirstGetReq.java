@@ -4,7 +4,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetReq {
+public class FirstGetReq {
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
 
