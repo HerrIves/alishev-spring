@@ -2,7 +2,11 @@ package de.ivev.FirstRestApp.controllers;
 
 import de.ivev.FirstRestApp.models.Person;
 import de.ivev.FirstRestApp.services.PeopleService;
+import de.ivev.FirstRestApp.utils.PersonErrorResponse;
+import de.ivev.FirstRestApp.utils.PersonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +30,18 @@ public class PeopleController {
 
     @GetMapping("/{id}")
     public Person getPerson(@PathVariable("id") int id){
-        Person one = peopleService.findOne(id);
-        if (one==null) {
-            one = new Person();
-            one.setId(id);
-            one.setName("no such person");
-        }
-        return one;
+        return peopleService.findOne(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<HttpStatus> create(){
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+    @ExceptionHandler
+    private ResponseEntity<PersonErrorResponse> exceptionHandler(PersonNotFoundException e){
+        PersonErrorResponse response = new PersonErrorResponse(
+                "no such id user found", System.currentTimeMillis()
+        );
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }

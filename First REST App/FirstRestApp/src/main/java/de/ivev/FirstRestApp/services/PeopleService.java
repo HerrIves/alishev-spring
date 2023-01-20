@@ -2,6 +2,7 @@ package de.ivev.FirstRestApp.services;
 
 import de.ivev.FirstRestApp.models.Person;
 import de.ivev.FirstRestApp.repositories.PeopleRepository;
+import de.ivev.FirstRestApp.utils.PersonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,14 +31,14 @@ public class PeopleService {
 
     public Person findOne(int id) {
         Optional<Person> foundPerson = peopleRepository.findById(id);
-        return foundPerson.orElse(null);
+        return foundPerson.orElseThrow(PersonNotFoundException::new);
     }
 
     @Transactional
     public void save(Person person) {
         peopleRepository.save(person);
     }
-
+/*
     @Transactional
     public void update(int id, Person updatedPerson) {
         updatedPerson.setId(id);
@@ -48,4 +49,5 @@ public class PeopleService {
     public void delete(int id) {
         peopleRepository.deleteById(id);
     }
+ */
 }

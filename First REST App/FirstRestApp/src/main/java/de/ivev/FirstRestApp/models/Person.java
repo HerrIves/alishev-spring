@@ -1,6 +1,10 @@
 package de.ivev.FirstRestApp.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Person")
@@ -11,11 +15,16 @@ public class Person {
     private int id;
 
     @Column(name = "name")
+    @NotEmpty(message = "please fill")
+    @Size(min = 2, max = 30, message = "from 2 to 30")
     private String name;
 
     @Column(name = "age")
+    @Min(value = 1, message = "greater than zero")
     private int age;
 
+    @Email
+    @NotEmpty(message = "not empty")
     @Column(name = "email")
     private String email;
 
